@@ -41,7 +41,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   machinist!
-  mysql
   rake
   rdoc
   rspec
+  sqlite3
