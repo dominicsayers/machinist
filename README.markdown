@@ -225,6 +225,8 @@ Machinable](https://github.com/notahat/machinist/blob/master/spec/machinable_spe
 
 ## Compatibility
 
+Please have a look at the Travis Build Status. [![Travis Build Status](https://travis-ci.org/liquid/machinist.png?branch=master)](https://travis-ci.org/liquid/machinist)
+
 I've tested this with:
 
 Ruby versions: 1.8.7, 1.9.2, 1.9.3, 2.0.0
