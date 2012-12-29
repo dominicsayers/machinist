@@ -48,6 +48,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  activerecord-jdbcsqlite3-adapter
   machinist!
   rake
   rdoc
