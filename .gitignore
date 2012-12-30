@@ -6,5 +6,6 @@
 /pkg
 /tags
 
+Gemfile.lock
 .rbenv-*
 .rbx
