@@ -4,6 +4,7 @@
 .config
 .DS_Store
 .rbenv-*
+.rbx
 .rbxpkg
 .rvmrc
 .yardoc
