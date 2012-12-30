@@ -2,16 +2,16 @@
 
 *Fixtures aren't fun. Machinist is.*
 
-- [Home page](http://github.com/notahat/machinist)
+- [Home page](http://github.com/liquid/machinist)
 - [Google group](http://groups.google.com/group/machinist-users), for support
-- [Bug tracker](http://github.com/notahat/machinist/issues), for reporting Machinist bugs
+- [Bug tracker](http://github.com/liquid/machinist/issues), for reporting Machinist bugs
 
 If you want Machinist 1, [go here](http://github.com/notahat/machinist/tree/1.0-maintenance).
 
 
 ## Introduction
 
-*Note: Machinist isn't under active development. See the Status section below for more info.*
+This is a fork of [Pete Yandell's Machinist](http://github.com/notahat/machinist). Unfortunately the original gem seems to be abandoned, regardless of the numerous pull requests that are waiting for approval and to be merged in. The purpose of this fork is to keep Machinist under maintenance and add additional features and support for multiple Ruby implementations, including Rubinius or JRuby.
 
 Machinist makes it easy to create objects for use in tests. It generates data
 for the attributes you don't care about, and constructs any necessary
@@ -63,7 +63,7 @@ In your app's `Gemfile`, in the `group :test` section, add:
 
 Then run:
 
-    bundle
+    bundle install
     rails generate machinist:install
 
 If you want Machinist to automatically add a blueprint to your blueprints file
