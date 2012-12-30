@@ -1,26 +1,24 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "machinist/version"
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'machinist/version'
 
-Gem::Specification.new do |s|
-  s.name     = "machinist"
-  s.version  = Machinist::VERSION
-  s.platform = Gem::Platform::RUBY
-  s.authors  = ["Pete Yandell"]
-  s.email    = ["pete@notahat.com"]
-  s.homepage = "http://github.com/notahat/machinist"
-  s.summary  = "Fixtures aren't fun. Machinist is."
+Gem::Specification.new do |gem|
+  gem.name          = "machinist"
+  gem.version       = Machinist::VERSION
+  gem.authors       = ["Pete Yandell", "Attila Györffy"]
+  gem.email         = ["attila@attilagyorffy.com"]
+  gem.description   = %q{Machinist makes it easy to create objects for use in tests. It generates data for the attributes you don't care about, and constructs any necessary associated objects, leaving you to specify only the fields you care about in your test.}
+  gem.summary       = %q{Fixtures aren't fun. Machinist is.}
+  gem.homepage      = "http://github.com/liquid/machinist"
 
-  s.rubyforge_project = "machinist"
+  gem.add_development_dependency "activerecord"
+  gem.add_development_dependency "rake"
+  gem.add_development_dependency "rspec"
+  gem.add_development_dependency "rdoc"
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
-
-  s.add_development_dependency "activerecord"
-
-  s.add_development_dependency "rake"
-  s.add_development_dependency "rspec"
-  s.add_development_dependency "rdoc"
+  gem.files         = `git ls-files`.split($/)
+  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  gem.require_paths = ["lib"]
 end
