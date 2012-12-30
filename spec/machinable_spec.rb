@@ -73,16 +73,12 @@ describe Machinist::Machinable do
   end
 
   it "fails without a blueprint" do
-    expect do
-      MachinableSpecs::Post.make
-    end.to raise_error(Machinist::NoBlueprintError) do |exception|
+    expect { MachinableSpecs::Post.make }.to raise_error(Machinist::NoBlueprintError) do |exception|
       exception.klass.should == MachinableSpecs::Post
       exception.name.should  == :master
     end
 
-    expect do
-      MachinableSpecs::Post.make(:some_name)
-    end.to raise_error(Machinist::NoBlueprintError) do |exception|
+    expect { MachinableSpecs::Post.make(:some_name) }.to raise_error(Machinist::NoBlueprintError) do |exception|
       exception.klass.should == MachinableSpecs::Post
       exception.name.should  == :some_name
     end
@@ -91,9 +87,7 @@ describe Machinist::Machinable do
   it "fails when calling make! on an unsavable object" do
     MachinableSpecs::Post.blueprint { }
 
-    expect do
-      MachinableSpecs::Post.make!
-    end.to raise_error(Machinist::BlueprintCantSaveError) do |exception|
+    expect { MachinableSpecs::Post.make! }.to raise_error(Machinist::BlueprintCantSaveError) do |exception|
       exception.blueprint.klass.should == MachinableSpecs::Post
     end
   end
