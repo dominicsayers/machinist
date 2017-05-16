@@ -1,4 +1,3 @@
-require File.dirname(__FILE__) + '/spec_helper'
 require 'ostruct'
 
 module InheritanceSpecs
@@ -18,7 +17,7 @@ module InheritanceSpecs
   end
 end
 
-describe Machinist::Blueprint do
+RSpec.describe Machinist::Blueprint do
   describe 'explicit inheritance' do
     it 'inherits attributes from the parent blueprint' do
       parent_blueprint = described_class.new(OpenStruct) do

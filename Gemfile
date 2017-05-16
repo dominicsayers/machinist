@@ -15,7 +15,6 @@ group :test do
   gem 'rspec', require: false
   gem 'rspec_junit_formatter', require: false
   gem 'simplecov', '~> 0.14', require: false
-  gem 'test-unit', require: false
 end
 
 platforms :ruby do

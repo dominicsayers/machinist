@@ -1,5 +1,3 @@
-require File.dirname(__FILE__) + '/spec_helper'
-
 module MachinableSpecs
   class Post
     extend Machinist::Machinable
@@ -12,7 +10,7 @@ module MachinableSpecs
   end
 end
 
-describe Machinist::Machinable do
+RSpec.describe Machinist::Machinable do
   before do
     MachinableSpecs::Post.clear_blueprints!
   end

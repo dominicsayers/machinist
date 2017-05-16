@@ -6,7 +6,6 @@
 .rbenv-*
 .rbx
 .rbxpkg
-.rspec
 .ruby-gemset
 .ruby-version
 .rvmrc

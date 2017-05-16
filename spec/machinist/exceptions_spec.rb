@@ -1,6 +1,4 @@
-require File.dirname(__FILE__) + '/spec_helper'
-
-describe Machinist, 'exceptions' do
+RSpec.describe Machinist, 'exceptions' do
   describe Machinist::BlueprintCantSaveError do
     it 'presents the right message' do
       blueprint = Machinist::Blueprint.new(String) {}

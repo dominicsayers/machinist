@@ -9,9 +9,9 @@ rvm:
   - 2.1.10
 
 gemfile:
-  - gemfiles/4.2.gemfile
-  - gemfiles/5.0.gemfile
-  - gemfiles/5.1.gemfile
+  - gemfiles/rails_4.2.gemfile
+  - gemfiles/rails_5.0.gemfile
+  - gemfiles/rails_5.1.gemfile
 
 branches:
   only:

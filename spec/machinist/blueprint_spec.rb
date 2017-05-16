@@ -1,7 +1,6 @@
-require File.dirname(__FILE__) + '/spec_helper'
 require 'ostruct'
 
-describe Machinist::Blueprint do
+RSpec.describe Machinist::Blueprint do
   it 'makes an object of the given class' do
     blueprint = described_class.new(OpenStruct) {}
     expect(blueprint.make).to be_an(OpenStruct)
@@ -28,7 +27,10 @@ describe Machinist::Blueprint do
   it 'allows passing in attributes to override the blueprint' do
     block_called = false
     blueprint = described_class.new(OpenStruct) do
-      name { block_called = true; 'Fred' }
+      name do
+        block_called = true
+        'Fred'
+      end
     end
     expect(blueprint.make(name: 'Bill').name).to eq('Bill')
     expect(block_called).to be_falsey

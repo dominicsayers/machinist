@@ -1,7 +1,6 @@
-require File.dirname(__FILE__) + '/spec_helper'
 require 'support/active_record_environment'
 
-describe Machinist::ActiveRecord do
+RSpec.describe Machinist::ActiveRecord do
   include ActiveRecordEnvironment
 
   before do
@@ -27,9 +26,9 @@ describe Machinist::ActiveRecord do
 
     it 'raises an exception for an invalid object' do
       User.blueprint {}
-      expect {
+      expect do
         User.make!(username: '')
-      }.to raise_error(ActiveRecord::RecordInvalid)
+      end.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 
@@ -56,7 +55,7 @@ describe Machinist::ActiveRecord do
       post = Post.make!
       expect(post).to be_a(Post)
       expect(post).not_to be_new_record
-      expect(post.size).to eq(3)
+      expect(post.comments.size).to eq(3)
       post.comments.each do |comment|
         expect(comment).to be_a(Comment)
         expect(comment).not_to be_new_record
@@ -73,7 +72,7 @@ describe Machinist::ActiveRecord do
       post = Post.make!
       expect(post).to be_a(Post)
       expect(post).not_to be_new_record
-      expect(post.size).to eq(3)
+      expect(post.tags.size).to eq(3)
       post.tags.each do |tag|
         expect(tag).to be_a(Tag)
         expect(tag).not_to be_new_record
@@ -99,9 +98,9 @@ describe Machinist::ActiveRecord do
   context 'error handling' do
     it 'raises an exception for an attribute with no value' do
       User.blueprint { username }
-      expect {
+      expect do
         User.make
-      }.to raise_error(ArgumentError)
+      end.to raise_error(ArgumentError)
     end
   end
 end
