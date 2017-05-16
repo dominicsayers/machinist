@@ -12,8 +12,8 @@ describe Machinist::ActiveRecord do
     it 'returns an unsaved object' do
       Post.blueprint {}
       post = Post.make
-      post.should be_a(Post)
-      post.should be_new_record
+      expect(post).to be_a(Post)
+      expect(post).to be_new_record
     end
   end
 
@@ -21,15 +21,15 @@ describe Machinist::ActiveRecord do
     it 'makes and saves objects' do
       Post.blueprint {}
       post = Post.make!
-      post.should be_a(Post)
-      post.should_not be_new_record
+      expect(post).to be_a(Post)
+      expect(post).not_to be_new_record
     end
 
     it 'raises an exception for an invalid object' do
       User.blueprint {}
-      lambda {
+      expect {
         User.make!(username: '')
-      }.should raise_error(ActiveRecord::RecordInvalid)
+      }.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 
@@ -42,10 +42,10 @@ describe Machinist::ActiveRecord do
         author
       end
       post = Post.make!
-      post.should be_a(Post)
-      post.should_not be_new_record
-      post.author.should be_a(User)
-      post.author.should_not be_new_record
+      expect(post).to be_a(Post)
+      expect(post).not_to be_new_record
+      expect(post.author).to be_a(User)
+      expect(post.author).not_to be_new_record
     end
 
     it 'handles has_many associations' do
@@ -54,12 +54,12 @@ describe Machinist::ActiveRecord do
       end
       Comment.blueprint {}
       post = Post.make!
-      post.should be_a(Post)
-      post.should_not be_new_record
-      post.should have(3).comments
+      expect(post).to be_a(Post)
+      expect(post).not_to be_new_record
+      expect(post.size).to eq(3)
       post.comments.each do |comment|
-        comment.should be_a(Comment)
-        comment.should_not be_new_record
+        expect(comment).to be_a(Comment)
+        expect(comment).not_to be_new_record
       end
     end
 
@@ -71,12 +71,12 @@ describe Machinist::ActiveRecord do
         name { "tag_#{sn}" }
       end
       post = Post.make!
-      post.should be_a(Post)
-      post.should_not be_new_record
-      post.should have(3).tags
+      expect(post).to be_a(Post)
+      expect(post).not_to be_new_record
+      expect(post.size).to eq(3)
       post.tags.each do |tag|
-        tag.should be_a(Tag)
-        tag.should_not be_new_record
+        expect(tag).to be_a(Tag)
+        expect(tag).not_to be_new_record
       end
     end
 
@@ -88,20 +88,20 @@ describe Machinist::ActiveRecord do
         author { User.make(username: "post_author_#{sn}") }
       end
       post = Post.make!
-      post.should be_a(Post)
-      post.should_not be_new_record
-      post.author.should be_a(User)
-      post.author.should_not be_new_record
-      post.author.username.should =~ /^post_author_\d+$/
+      expect(post).to be_a(Post)
+      expect(post).not_to be_new_record
+      expect(post.author).to be_a(User)
+      expect(post.author).not_to be_new_record
+      expect(post.author.username).to match(/^post_author_\d+$/)
     end
   end
 
   context 'error handling' do
     it 'raises an exception for an attribute with no value' do
       User.blueprint { username }
-      lambda {
+      expect {
         User.make
-      }.should raise_error(ArgumentError)
+      }.to raise_error(ArgumentError)
     end
   end
 end

@@ -31,8 +31,8 @@ describe Machinist::Blueprint do
       end
 
       child = child_blueprint.make
-      child.name.should == 'Bill'
-      child.age.should == 97
+      expect(child.name).to eq('Bill')
+      expect(child.age).to eq(97)
     end
 
     it 'takes the serial number from the parent' do
@@ -44,9 +44,9 @@ describe Machinist::Blueprint do
         child_serial { sn }
       end
 
-      parent_blueprint.make.parent_serial.should == '0001'
-      child_blueprint.make.child_serial.should == '0002'
-      parent_blueprint.make.parent_serial.should == '0003'
+      expect(parent_blueprint.make.parent_serial).to eq('0001')
+      expect(child_blueprint.make.child_serial).to eq('0002')
+      expect(parent_blueprint.make.parent_serial).to eq('0003')
     end
   end
 
@@ -60,7 +60,7 @@ describe Machinist::Blueprint do
         name { 'Fred' }
       end
       InheritanceSpecs::Son.blueprint {}
-      InheritanceSpecs::Son.make.name.should == 'Fred'
+      expect(InheritanceSpecs::Son.make.name).to eq('Fred')
     end
 
     it 'overrides blueprinted attributes in the child class' do
@@ -70,8 +70,8 @@ describe Machinist::Blueprint do
       InheritanceSpecs::Son.blueprint do
         name { 'George' }
       end
-      InheritanceSpecs::Dad.make.name.should == 'Fred'
-      InheritanceSpecs::Son.make.name.should == 'George'
+      expect(InheritanceSpecs::Dad.make.name).to eq('Fred')
+      expect(InheritanceSpecs::Son.make.name).to eq('George')
     end
 
     it 'inherits from blueprinted attributes in ancestor class' do
@@ -79,9 +79,9 @@ describe Machinist::Blueprint do
         name { 'Fred' }
       end
       InheritanceSpecs::Son.blueprint {}
-      InheritanceSpecs::Grandpa.make.name.should == 'Fred'
-      -> { InheritanceSpecs::Dad.make }.should raise_error(RuntimeError)
-      InheritanceSpecs::Son.make.name.should == 'Fred'
+      expect(InheritanceSpecs::Grandpa.make.name).to eq('Fred')
+      expect { InheritanceSpecs::Dad.make }.to raise_error(RuntimeError)
+      expect(InheritanceSpecs::Son.make.name).to eq('Fred')
     end
 
     it 'follows inheritance for named blueprints correctly' do
@@ -95,8 +95,8 @@ describe Machinist::Blueprint do
       InheritanceSpecs::Son.blueprint(:special) do
         age { 37 }
       end
-      InheritanceSpecs::Son.make(:special).name.should == 'John'
-      InheritanceSpecs::Son.make(:special).age.should == 37
+      expect(InheritanceSpecs::Son.make(:special).name).to eq('John')
+      expect(InheritanceSpecs::Son.make(:special).age).to eq(37)
     end
   end
 end
