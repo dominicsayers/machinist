@@ -73,21 +73,28 @@ module Machinist
     # construct an object from them. The block may be called multiple times to
     # construct multiple objects.
     def decode_args_to_make(*args) #:nodoc:
-      shift_arg = ->(klass) { args.shift if args.first.is_a?(klass) }
-      count      = shift_arg[0.class]
-      name       = shift_arg[Symbol] || :master
-      attributes = shift_arg[Hash]   || {}
-      raise ArgumentError, "Couldn't understand arguments" unless args.empty?
-
-      @blueprints ||= {}
-      blueprint = @blueprints[name]
-      raise NoBlueprintError.new(self, name) unless blueprint
+      count, name, attributes = *decode_args(args)
+      blueprint = ensure_blueprint(name)
 
       if count.nil?
         yield(blueprint, attributes)
       else
         Array.new(count) { yield(blueprint, attributes) }
       end
+    end
+
+    def decode_args(args)
+      shift_arg  = ->(klass) { args.shift if args.first.is_a?(klass) }
+      count      = shift_arg[0.class]
+      name       = shift_arg[Symbol] || :master
+      attributes = shift_arg[Hash]   || {}
+      raise ArgumentError, "Couldn't understand arguments" unless args.empty?
+      [count, name, attributes]
+    end
+
+    def ensure_blueprint(name)
+      @blueprints ||= {}
+      @blueprints[name] || raise(NoBlueprintError.new(self, name))
     end
   end
 end
