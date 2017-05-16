@@ -1,5 +1,3 @@
-.ruby-version
-.ruby-gemset
 *.gem
 *.rbc
 .bundle
@@ -8,8 +6,12 @@
 .rbenv-*
 .rbx
 .rbxpkg
+.rspec
+.ruby-gemset
+.ruby-version
 .rvmrc
 .yardoc
+_yardoc
 coverage
 doc/
 Gemfile.lock
@@ -21,4 +23,3 @@ tags
 test/tmp
 test/version_tmp
 tmp
-_yardoc

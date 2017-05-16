@@ -13,40 +13,39 @@ module MachinableSpecs
 end
 
 describe Machinist::Machinable do
-
-  before(:each) do
+  before do
     MachinableSpecs::Post.clear_blueprints!
   end
 
-  it "makes an object" do
+  it 'makes an object' do
     MachinableSpecs::Post.blueprint do
-      title { "First Post" }
+      title { 'First Post' }
     end
 
     post = MachinableSpecs::Post.make
     post.should be_a(MachinableSpecs::Post)
-    post.title.should == "First Post"
+    post.title.should == 'First Post'
   end
 
-  it "makes an object from a named blueprint" do
+  it 'makes an object from a named blueprint' do
     MachinableSpecs::Post.blueprint do
-      title { "First Post" }
-      body  { "Woot!" }
+      title { 'First Post' }
+      body  { 'Woot!' }
     end
 
     MachinableSpecs::Post.blueprint(:extra) do
-      title { "Extra!" }
+      title { 'Extra!' }
     end
 
     post = MachinableSpecs::Post.make(:extra)
     post.should be_a(MachinableSpecs::Post)
-    post.title.should == "Extra!"
-    post.body.should == "Woot!"
+    post.title.should == 'Extra!'
+    post.body.should == 'Woot!'
   end
 
-  it "makes an array of objects" do
+  it 'makes an array of objects' do
     MachinableSpecs::Post.blueprint do
-      title { "First Post" }
+      title { 'First Post' }
     end
 
     posts = MachinableSpecs::Post.make(3)
@@ -54,12 +53,12 @@ describe Machinist::Machinable do
     posts.should have(3).elements
     posts.each do |post|
       post.should be_a(MachinableSpecs::Post)
-      post.title.should == "First Post"
+      post.title.should == 'First Post'
     end
   end
 
-  it "makes array attributes from the blueprint" do
-    MachinableSpecs::Comment.blueprint { }
+  it 'makes array attributes from the blueprint' do
+    MachinableSpecs::Comment.blueprint {}
     MachinableSpecs::Post.blueprint do
       comments(3) { MachinableSpecs::Comment.make }
     end
@@ -72,7 +71,7 @@ describe Machinist::Machinable do
     end
   end
 
-  it "fails without a blueprint" do
+  it 'fails without a blueprint' do
     expect { MachinableSpecs::Post.make }.to raise_error(Machinist::NoBlueprintError) do |exception|
       exception.klass.should == MachinableSpecs::Post
       exception.name.should  == :master
@@ -84,12 +83,11 @@ describe Machinist::Machinable do
     end
   end
 
-  it "fails when calling make! on an unsavable object" do
-    MachinableSpecs::Post.blueprint { }
+  it 'fails when calling make! on an unsavable object' do
+    MachinableSpecs::Post.blueprint {}
 
     expect { MachinableSpecs::Post.make! }.to raise_error(Machinist::BlueprintCantSaveError) do |exception|
       exception.blueprint.klass.should == MachinableSpecs::Post
     end
   end
-
 end

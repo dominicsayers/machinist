@@ -1,8 +1,6 @@
 module Machinist
-
   # A Blueprint defines a method of constructing objects of a particular class.
   class Blueprint
-
     # Construct a blueprint for the given +klass+.
     #
     # Pass in the +:parent+ option to define a parent blueprint to apply after
@@ -24,7 +22,7 @@ module Machinist
       lathe = lathe_class.new(@klass, new_serial_number, attributes)
 
       lathe.instance_eval(&@block)
-      each_ancestor {|blueprint| lathe.instance_eval(&blueprint.block) }
+      each_ancestor { |blueprint| lathe.instance_eval(&blueprint.block) }
 
       lathe.object
     end
@@ -39,14 +37,14 @@ module Machinist
     # Returns the parent blueprint for this blueprint.
     def parent_blueprint
       case @parent
-        when nil
-          nil
-        when Blueprint
-          # @parent references the parent blueprint directly.
-          @parent
-        else
-          # @parent is a class in which we should look for a blueprint.
-          find_blueprint_in_superclass_chain(@parent)
+      when nil
+        nil
+      when Blueprint
+        # @parent references the parent blueprint directly.
+        @parent
+      else
+        # @parent is a class in which we should look for a blueprint.
+        find_blueprint_in_superclass_chain(@parent)
       end
     end
 
@@ -59,31 +57,28 @@ module Machinist
       end
     end
 
-  protected
+    protected
 
-    def new_serial_number  #:nodoc:
-      parent_blueprint = self.parent_blueprint  # Cache this for speed.
+    def new_serial_number #:nodoc:
+      parent_blueprint = self.parent_blueprint # Cache this for speed.
       if parent_blueprint
         parent_blueprint.new_serial_number
       else
         @serial_number ||= 0
         @serial_number += 1
-        sprintf("%04d", @serial_number)
+        sprintf('%04d', @serial_number)
       end
     end
 
-  private
+    private
 
     def find_blueprint_in_superclass_chain(klass)
-      until has_blueprint?(klass) || klass.nil?
-        klass = klass.superclass
-      end
+      klass = klass.superclass until has_blueprint?(klass) || klass.nil?
       klass && klass.blueprint
     end
 
     def has_blueprint?(klass)
       klass.respond_to?(:blueprint) && !klass.blueprint.nil?
     end
-
   end
 end

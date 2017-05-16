@@ -1,10 +1,10 @@
 # Machinist 2
 
-*Fixtures aren't fun. Machinist is.*
+*Fixtures aren't fun. Machinist was.*
 
-- [Home page](http://github.com/liquid/machinist)
+- [Home page](http://github.com/dominicsayers/machinist)
 - [Google group](http://groups.google.com/group/machinist-users), for support
-- [Bug tracker](http://github.com/liquid/machinist/issues), for reporting Machinist bugs
+- [Bug tracker](http://github.com/dominicsayers/machinist/issues), for reporting Machinist bugs
 
 If you want Machinist 1, [go here](http://github.com/notahat/machinist/tree/1.0-maintenance).
 
@@ -218,14 +218,14 @@ You can refer to already assigned attributes when constructing a new attribute:
 
 Read the code! No, really. I wrote this code to be read.
 
-Check out [the specs](https://github.com/notahat/machinist/tree/master/spec),
+Check out [the specs](https://github.com/dominicsayers/machinist/tree/master/spec),
 starting with [the spec for
-Machinable](https://github.com/notahat/machinist/blob/master/spec/machinable_spec.rb).
+Machinable](https://github.com/dominicsayers/machinist/blob/master/spec/machinable_spec.rb).
 
 
 ## Compatibility
 
-Please have a look at the Travis Build Status. [![Travis Build Status](https://travis-ci.org/liquid/machinist.png?branch=master)](https://travis-ci.org/liquid/machinist)
+Please have a look at the Travis Build Status. [![Travis Build Status](https://travis-ci.org/dominicsayers/machinist.png?branch=master)](https://travis-ci.org/dominicsayers/machinist)
 
 I've tested this with:
 
@@ -265,7 +265,7 @@ If anybody wants to take over maintenance, let me know.
 
 ## Contributors
 
-Machinist is maintained by Pete Yandell ([pete@notahat.com](mailto:pete@notahat.com), [@notahat](http://twitter.com/notahat))
+Machinist was maintained by Pete Yandell ([pete@notahat.com](mailto:pete@notahat.com), [@notahat](http://twitter.com/notahat))
 
 Other contributors include:
 
@@ -290,6 +290,7 @@ Other contributors include:
 [Gareth Townsend](http://github.com/quamen),
 [Matt Wastrodowski](http://github.com/towski),
 [Ian White](http://github.com/ianwhite)
+[Dominic Sayers](https://github.com/dominicsayers)
 
 Thanks to Thoughtbot's [Factory
 Girl](http://github.com/thoughtbot/factory_girl/tree/master). Machinist was
