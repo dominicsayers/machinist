@@ -36,7 +36,7 @@ module Machinist
     protected
 
     def make_attribute(attribute, args, &block) #:nodoc:
-      count = args.shift if args.first.is_a?(Integer)
+      count = args.shift if args.first.is_a?(0.class)
       if count
         Array.new(count) { make_one_value(attribute, args, &block) }
       else
