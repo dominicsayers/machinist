@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
                       'to specify only the fields you care about in your test.'
   gem.summary       = "Fixtures aren't fun. Machinist was."
   gem.homepage      = 'http://github.com/dominicsayers/machinist'
+  gem.license       = 'MIT'
 
   gem.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
   gem.executables   = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
