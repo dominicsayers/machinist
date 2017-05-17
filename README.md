@@ -73,7 +73,7 @@ See [the wiki](http://wiki.github.com/notahat/machinist/machinist-2).
 
 In your app's `Gemfile`, in the `group :test` section, add:
 
-    gem 'machinist', '>= 2.0.0'
+    gem 'machinist_redux'
 
 Then run:
 
