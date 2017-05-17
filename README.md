@@ -1,4 +1,4 @@
-# Machinist 2
+# Machinist 3
 
 *Fixtures aren't fun. Machinist was.*
 
@@ -17,7 +17,6 @@
 If you want Machinist 1, [go here](https://github.com/notahat/machinist/tree/1.0-maintenance).
 
 If you want support for Rails 3 or Rubies prior to 2.2, [go here](https://github.com/attilagyorffy/machinist).
-
 
 ## Status
 
@@ -215,7 +214,6 @@ generated even for an admin user.
 You must define a default blueprint for any class that has a named blueprint,
 even if the default blueprint is empty.
 
-
 ### Blueprints on Plain Old Ruby Objects
 
 Machinist also works with plain old Ruby objects. Let's say you have a class like:
@@ -239,7 +237,6 @@ end
 ```
 
 And `Post.make` will construct a new Post.
-
 
 ### Other Tricks
 
