@@ -10,16 +10,22 @@
 [![Dependency Status](https://gemnasium.com/badges/github.com/dominicsayers/machinist.svg)](https://gemnasium.com/github.com/dominicsayers/machinist)
 [![Security](https://hakiri.io/github/dominicsayers/machinist/master.svg)](https://hakiri.io/github/dominicsayers/machinist/master)
 
-- [Home page](http://github.com/dominicsayers/machinist)
-- [Google group](http://groups.google.com/group/machinist-users), for support
-- [Bug tracker](http://github.com/dominicsayers/machinist/issues), for reporting Machinist bugs
+- [Home page](https://github.com/dominicsayers/machinist)
+- [Google group](https://groups.google.com/group/machinist-users), for support
+- [Bug tracker](https://github.com/dominicsayers/machinist/issues), for reporting Machinist bugs
 
-If you want Machinist 1, [go here](http://github.com/notahat/machinist/tree/1.0-maintenance).
+If you want Machinist 1, [go here](https://github.com/notahat/machinist/tree/1.0-maintenance).
 
+If you want support for Rails 3 or Rubies prior to 2.2, [go here](https://github.com/attilagyorffy/machinist).
+
+
+## Status
+
+This is a fork of [Pete Yandell's Machinist](http://github.com/notahat/machinist). The original gem was abandoned for the reasons given below, as are most of its forks. The purpose of this fork is to keep Machinist under maintenance for legacy projects that have upgraded to Ruby 2.2 or later and Rails 4.2 or later, but still have Machinist factories in the test environment.
+
+Pete Yandell's reason for abandoning Machinist is that he found himself with less and less need for factories in tests. He recommends Bo Jeanes' [excellent article on the topic](http://bjeanes.com/2012/02/factories-breed-complexity).
 
 ## Introduction
-
-This is a fork of [Pete Yandell's Machinist](http://github.com/notahat/machinist). Unfortunately the original gem seems to be abandoned, regardless of the numerous pull requests that are waiting for approval and to be merged in. The purpose of this fork is to keep Machinist under maintenance and add additional features and support for multiple Ruby implementations, including Rubinius or JRuby.
 
 Machinist makes it easy to create objects for use in tests. It generates data
 for the attributes you don't care about, and constructs any necessary
@@ -63,7 +69,7 @@ You tell Machinist how to do this with blueprints:
 
 See [the wiki](http://wiki.github.com/notahat/machinist/machinist-2).
 
-### Rails 3
+### Rails 4 and 5
 
 In your app's `Gemfile`, in the `group :test` section, add:
 
@@ -81,11 +87,6 @@ inside the Application class:
     config.generators do |g|
       g.fixture_replacement :machinist
     end
-
-### Rails 2
-
-See [the wiki](http://wiki.github.com/notahat/machinist/rails-2).
-
 
 ## Usage
 
@@ -258,18 +259,6 @@ If you want to submit a patch:
 - Commit, do not mess with rakefile, version, or history.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 - Send me a pull request. Bonus points for topic branches.
-
-
-## Status
-
-In active use in a number of large Rails 2 and 3 apps.
-
-Development is sporadic at best, as I find myself with less and less need for
-factories in tests. See Bo Jeanes'
-[excellent article on the topic](http://bjeanes.com/2012/02/factories-breed-complexity).
-
-If anybody wants to take over maintenance, let me know.
-
 
 ## Contributors
 
