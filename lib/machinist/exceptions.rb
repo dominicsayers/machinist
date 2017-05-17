@@ -1,5 +1,4 @@
 module Machinist
-
   # Raised when make! is called on a class whose blueprints don't support
   # saving.
   class BlueprintCantSaveError < RuntimeError
@@ -28,5 +27,4 @@ module Machinist
       "No #{@name} blueprint defined for class #{@klass.name}"
     end
   end
-
 end

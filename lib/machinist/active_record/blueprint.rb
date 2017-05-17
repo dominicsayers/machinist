@@ -1,6 +1,5 @@
 module Machinist::ActiveRecord
   class Blueprint < Machinist::Blueprint
-
     # Make and save an object.
     def make!(attributes = {})
       object = make(attributes)
@@ -11,6 +10,5 @@ module Machinist::ActiveRecord
     def lathe_class #:nodoc:
       Machinist::ActiveRecord::Lathe
     end
-
   end
 end

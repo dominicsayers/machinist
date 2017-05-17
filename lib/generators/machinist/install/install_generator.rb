@@ -3,20 +3,20 @@ module Machinist
     class InstallGenerator < Rails::Generators::Base #:nodoc:
       source_root File.expand_path('../templates', __FILE__)
 
-      class_option :test_framework, :type => :string, :aliases => "-t", :desc => "Test framework to use Machinist with"
-      class_option :cucumber, :type => :boolean, :desc => "Set up access to Machinist from Cucumber"
+      class_option :test_framework, type: :string, aliases: '-t', desc: 'Test framework to use Machinist with'
+      class_option :cucumber, type: :boolean, desc: 'Set up access to Machinist from Cucumber'
 
       def blueprints_file
         if rspec?
-          copy_file "blueprints.rb", "spec/support/blueprints.rb" 
+          copy_file 'blueprints.rb', 'spec/support/blueprints.rb'
         else
-          copy_file "blueprints.rb", "test/blueprints.rb"
+          copy_file 'blueprints.rb', 'test/blueprints.rb'
         end
       end
 
       def test_helper
         if test_unit?
-          inject_into_file("test/test_helper.rb", :after => "require 'rails/test_help'\n") do
+          inject_into_file('test/test_helper.rb', after: "require 'rails/test_help'\n") do
             "require File.expand_path(File.dirname(__FILE__) + '/blueprints')\n"
           end
         end
@@ -24,11 +24,11 @@ module Machinist
 
       def cucumber_support
         if cucumber?
-          template "machinist.rb.erb", "features/support/machinist.rb"
+          template 'machinist.rb.erb', 'features/support/machinist.rb'
         end
       end
 
-    private
+      private
 
       def rspec?
         options[:test_framework].to_sym == :rspec

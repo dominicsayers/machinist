@@ -1,19 +1,17 @@
 module Machinist
-
   # When you make an object, the blueprint for that object is instance-evaled
   # against a Lathe.
   #
   # The Lathe implements all the methods that are available to the blueprint,
   # including method_missing to let the blueprint define attributes.
   class Lathe
-
     def initialize(klass, serial_number, attributes = {})
       @klass               = klass
       @serial_number       = serial_number
       @assigned_attributes = {}
 
       @object              = @klass.new
-      attributes.each {|key, value| assign_attribute(key, value) }
+      attributes.each { |key, value| assign_attribute(key, value) }
     end
 
     # Returns a unique serial number for the object under construction.
@@ -35,10 +33,10 @@ module Machinist
     undef_method :id   if respond_to?(:id)
     undef_method :type if respond_to?(:type)
 
-  protected
+    protected
 
     def make_attribute(attribute, args, &block) #:nodoc:
-      count = args.shift if args.first.is_a?(Fixnum)
+      count = args.shift if args.first.is_a?(0.class)
       if count
         Array.new(count) { make_one_value(attribute, args, &block) }
       else
@@ -57,12 +55,11 @@ module Machinist
     end
 
     def attribute_assigned?(key) #:nodoc:
-      @assigned_attributes.has_key?(key.to_sym)
+      @assigned_attributes.key?(key.to_sym)
     end
 
     def raise_argument_error(attribute) #:nodoc:
-      raise ArgumentError.new("Invalid arguments to attribute #{attribute} in blueprint")
+      raise ArgumentError, "Invalid arguments to attribute #{attribute} in blueprint"
     end
-
   end
 end

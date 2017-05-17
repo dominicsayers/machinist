@@ -1,0 +1,60 @@
+---
+require: rubocop-rspec
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.2
+  DisplayCopNames: true
+  Exclude:
+    - 'tmp/**/*'
+
+Style/MixinGrouping:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/BlockLength:
+  CountComments: false  # count full line comments?
+  Exclude:
+    - '**/*_spec.rb'
+
+StringLiterals:
+  EnforcedStyle: single_quotes
+  Enabled: true
+
+DotPosition:
+  EnforcedStyle: leading
+  Enabled: true
+
+ClassAndModuleChildren:
+  EnforcedStyle: nested
+  Enabled: true
+
+Documentation:
+  Enabled: false
+
+FileName:
+  Enabled: true
+
+LineLength:
+  Max: 120
+  Enabled: true
+
+Style/ExtraSpacing:
+  Enabled: true
+
+Lint/LiteralInInterpolation:
+  AutoCorrect: true
+
+Style/ModuleFunction:
+  EnforcedStyle: extend_self # Allows us to have private methods too
+
+Style/PercentLiteralDelimiters:
+  # Hound and CodeClimate are currently using an old version of Rubocop with
+  # different defaults, so we set them explicitly here.
+  PreferredDelimiters:
+    default: ()
+    '%i': '[]'
+    '%I': '[]'
+    '%r': '{}'
+    '%w': '[]'
+    '%W': '[]'

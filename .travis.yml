@@ -1,26 +1,26 @@
+---
 language: ruby
+
 rvm:
   - ruby-head
-  - 2.1.0
-  - 2.0.0
-  - rbx-2.1.1
-  - 1.9.3
-  - jruby-19mode # JRuby in 1.9 mode
-  - rbx-19mode
+  - 2.4.1
+  - 2.3.4
+  - 2.2.6
+  - 2.1.10
 
 gemfile:
-  - gemfiles/3.0.gemfile
-  - gemfiles/3.1.gemfile
-  - gemfiles/3.2.gemfile
-  - gemfiles/4.0.gemfile
-  - gemfiles/4.1.gemfile
-  - gemfiles/4.2.gemfile
+  - gemfiles/rails_4.2.gemfile
+  - gemfiles/rails_5.0.gemfile
+  - gemfiles/rails_5.1.gemfile
 
 branches:
   only:
     - master
+
 matrix:
   allow_failures:
-    - rvm: jruby-18mode
-    - rvm: jruby-19mode
+    - gemfile: gemfiles/rails_5.0.gemfile
+      rvm: 2.1.10
+    - gemfile: gemfiles/rails_5.1.gemfile
+      rvm: 2.1.10
     - rvm: ruby-head

@@ -1,5 +1,4 @@
 module Machinist
-
   # Extend classes with this module to define the blueprint and make methods.
   module Machinable
     # Define a blueprint with the given name for this class.
@@ -16,7 +15,7 @@ module Machinist
       @blueprints ||= {}
       if block_given?
         parent = (name == :master ? superclass : self) # Where should we look for the parent blueprint?
-        @blueprints[name] = blueprint_class.new(self, :parent => parent, &block)
+        @blueprints[name] = blueprint_class.new(self, parent: parent, &block)
       end
       @blueprints[name]
     end
@@ -48,7 +47,7 @@ module Machinist
     # Arguments are the same as for make.
     def make!(*args)
       decode_args_to_make(*args) do |blueprint, attributes|
-        raise BlueprintCantSaveError.new(blueprint) unless blueprint.respond_to?(:make!)
+        raise BlueprintCantSaveError, blueprint unless blueprint.respond_to?(:make!)
         blueprint.make!(attributes)
       end
     end
@@ -66,7 +65,7 @@ module Machinist
       Machinist::Blueprint
     end
 
-  private
+    private
 
     # Parses the arguments to make.
     #
@@ -74,15 +73,8 @@ module Machinist
     # construct an object from them. The block may be called multiple times to
     # construct multiple objects.
     def decode_args_to_make(*args) #:nodoc:
-      shift_arg = lambda {|klass| args.shift if args.first.is_a?(klass) }
-      count      = shift_arg[Fixnum]
-      name       = shift_arg[Symbol] || :master
-      attributes = shift_arg[Hash]   || {}
-      raise ArgumentError.new("Couldn't understand arguments") unless args.empty?
-
-      @blueprints ||= {}
-      blueprint = @blueprints[name]
-      raise NoBlueprintError.new(self, name) unless blueprint
+      count, name, attributes = *decode_args(args)
+      blueprint = ensure_blueprint(name)
 
       if count.nil?
         yield(blueprint, attributes)
@@ -91,5 +83,18 @@ module Machinist
       end
     end
 
+    def decode_args(args)
+      shift_arg  = ->(klass) { args.shift if args.first.is_a?(klass) }
+      count      = shift_arg[0.class]
+      name       = shift_arg[Symbol] || :master
+      attributes = shift_arg[Hash]   || {}
+      raise ArgumentError, "Couldn't understand arguments" unless args.empty?
+      [count, name, attributes]
+    end
+
+    def ensure_blueprint(name)
+      @blueprints ||= {}
+      @blueprints[name] || raise(NoBlueprintError.new(self, name))
+    end
   end
 end
