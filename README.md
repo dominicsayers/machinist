@@ -22,6 +22,8 @@ If you want support for Rails 3 or Rubies prior to 2.2, [go here](https://github
 
 This is a fork of [Pete Yandell's Machinist](http://github.com/notahat/machinist). The original gem was abandoned for the reasons given below, as are most of its forks. The purpose of this fork is to keep Machinist under maintenance for legacy projects that have upgraded to Ruby 2.2 or later and Rails 4.2 or later, but still have Machinist factories in the test environment.
 
+I'm pleased to say that Pete's code runs fine under Ruby 2.2, 2.3 & 2.4 and Rails 4.2, 5.0 and 5.1. I have allowed [RuboCop](https://github.com/bbatsov/rubocop) and [RuboCop RSpec](https://github.com/backus/rubocop-rspec) to suggest some changes, and I have converted to the more up-to-date RSpec syntax using [Transpec](https://github.com/yujinakayama/transpec). Few if any manual changes were needed.
+
 Pete Yandell's reason for abandoning Machinist is that he found himself with less and less need for factories in tests. He recommends Bo Jeanes' [excellent article on the topic](http://bjeanes.com/2012/02/factories-breed-complexity).
 
 ## Introduction
@@ -32,11 +34,11 @@ associated objects, leaving you to specify only the fields you care about in
 your test. For example:
 
 ```ruby
-describe Comment, "without_spam scope" do
+describe Comment, 'without_spam scope' do
   it "doesn't include spam" do
     # This will make a Comment, a Post, and a User (the author of the
     # Post), generate values for all their attributes, and save them:
-    spam = Comment.make!(:spam => true)
+    spam = Comment.make!(spam: true)
 
     Comment.without_spam.should_not include(spam)
   end
@@ -55,13 +57,13 @@ end
 Post.blueprint do
   author
   title  { "Post #{sn}" }
-  body   { "Lorem ipsum..." }
+  body   { 'Lorem ipsum...' }
 end
 
 Comment.blueprint do
   post
   email { "commenter#{sn}@example.com" }
-  body  { "Lorem ipsum..." }
+  body  { 'Lorem ipsum...' }
 end
 ```
 
@@ -107,8 +109,8 @@ A simple blueprint might look like this:
 
 ```ruby
 Post.blueprint do
-  title  { "A Post" }
-  body   { "Lorem ipsum..." }
+  title  { 'A Post' }
+  body   { 'Lorem ipsum...' }
 end
 ```
 
@@ -126,7 +128,7 @@ Post can't be saved.)
 You can override values defined in the blueprint by passing a hash to make:
 
 ```ruby
-Post.make!(:title => "A Specific Title")
+Post.make!(title: 'A Specific Title')
 ```
 
 If you want to generate an object without saving it to the database, replace
@@ -169,8 +171,8 @@ If you want to override the value for post when constructing the comment, you
 can do this:
 
 ```ruby
-post = Post.make(:title => "A particular title")
-comment = Comment.make(:post => post)
+post = Post.make(title: 'A particular title')
+comment = Comment.make(post: post)
 ```
 
 For `has_many` and `has_and_belongs_to_many` associations, you can create
@@ -231,8 +233,8 @@ You can blueprint the Post class just like anything else:
 
 ```ruby
 Post.blueprint do
-  title { "A title!" }
-  body  { "A body!" }
+  title { 'A title!' }
+  body  { 'A body!' }
 end
 ```
 
