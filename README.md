@@ -227,23 +227,7 @@ You can refer to already assigned attributes when constructing a new attribute:
 
 Read the code! No, really. I wrote this code to be read.
 
-Check out [the specs](https://github.com/dominicsayers/machinist/tree/master/spec),
-starting with [the spec for
-Machinable](https://github.com/dominicsayers/machinist/blob/master/spec/machinable_spec.rb).
-
-
-## Compatibility
-
-Please have a look at the Travis Build Status. [![Travis Build Status](https://travis-ci.org/dominicsayers/machinist.png?branch=master)](https://travis-ci.org/dominicsayers/machinist)
-
-I've tested this with:
-
-Ruby versions: 1.8.7, 1.9.2, 1.9.3, 2.0.0
-Rails versions: 2.3, 3.0, 3.2
-
-It may well be happy with other versions too, but I'm not promising anything.
-Compatibility patches are welcome.
-
+Check out [the specs](https://github.com/dominicsayers/machinist/tree/master/spec), starting with [the spec for Machinable](https://github.com/dominicsayers/machinist/blob/master/spec/machinable_spec.rb).
 
 ## Developing
 
@@ -286,7 +270,7 @@ Other contributors include:
 [Roland Swingler](http://github.com/knaveofdiamonds),
 [Gareth Townsend](http://github.com/quamen),
 [Matt Wastrodowski](http://github.com/towski),
-[Ian White](http://github.com/ianwhite)
+[Ian White](http://github.com/ianwhite),
 [Dominic Sayers](https://github.com/dominicsayers)
 
 Thanks to Thoughtbot's [Factory
