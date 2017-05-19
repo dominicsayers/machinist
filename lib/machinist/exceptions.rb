@@ -4,12 +4,13 @@ module Machinist
   class BlueprintCantSaveError < RuntimeError
     attr_reader :blueprint
 
-    def initialize(blueprint)
+    def initialize(blueprint, message = nil)
       @blueprint = blueprint
+      @message = message
     end
 
     def message
-      "make! is not supported by blueprints for class #{@blueprint.klass.name}"
+      @message ||= "make! is not supported by blueprints for class #{@blueprint.klass.name}"
     end
   end
 
