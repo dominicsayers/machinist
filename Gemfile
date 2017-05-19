@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 gemspec
 ruby RUBY_VERSION
 
+gem 'sqlite3'
+
 group :development do
   gem 'appraisal', require: false
   gem 'gem-release', require: false
@@ -21,12 +23,4 @@ group :test do
   gem 'rspec', require: false
   gem 'rspec_junit_formatter', require: false
   gem 'simplecov', '~> 0.14', require: false
-end
-
-platforms :ruby do
-  gem 'sqlite3'
-end
-
-platforms :jruby do
-  gem 'activerecord-jdbcsqlite3-adapter'
 end

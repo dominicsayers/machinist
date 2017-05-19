@@ -5,6 +5,7 @@ source "http://rubygems.org"
 ruby RUBY_VERSION
 
 gem "activerecord", "~> 5.0.3", group: :test, require: false
+gem 'sqlite3'
 
 group :development do
   gem 'appraisal', require: false
@@ -25,14 +26,6 @@ group :test do
   gem "rspec", require: false
   gem "rspec_junit_formatter", require: false
   gem "simplecov", "~> 0.14", require: false
-end
-
-platforms :ruby do
-  gem "sqlite3"
-end
-
-platforms :jruby do
-  gem "activerecord-jdbcsqlite3-adapter"
 end
 
 gemspec path: "../"
