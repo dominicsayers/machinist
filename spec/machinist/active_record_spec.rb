@@ -28,7 +28,7 @@ RSpec.describe Machinist::ActiveRecord do
       User.blueprint {}
       expect do
         User.make!(username: '')
-      end.to raise_error(ActiveRecord::RecordInvalid)
+      end.to raise_error(Machinist::BlueprintCantSaveError)
     end
   end
 
