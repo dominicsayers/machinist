@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    machinist_redux (3.0.2)
+    machinist_redux (3.0.3)
 
 GEM
   remote: http://rubygems.org/
