@@ -3,7 +3,7 @@
 *Fixtures aren't fun. Machinist was.*
 
 [![Gem version](https://badge.fury.io/rb/machinist_redux.svg)](https://rubygems.org/gems/machinist_redux)
-[![Gem downloads](https://img.shields.io/gem/dt/machinist_redux.svg)](https://rubygems.org/gems/machinist_redux)
+[![Gem downloads](https://img.shields.io/gem/dt/machinist_redux.svg?style=flat-square)](https://rubygems.org/gems/machinist_redux)
 [![Build Status](https://travis-ci.org/dominicsayers/machinist.svg?branch=master)](https://travis-ci.org/dominicsayers/machinist)
 [![Code Climate](https://codeclimate.com/github/dominicsayers/machinist/badges/gpa.svg)](https://codeclimate.com/github/dominicsayers/machinist)
 [![Test Coverage](https://codeclimate.com/github/dominicsayers/machinist/badges/coverage.svg)](https://codeclimate.com/github/dominicsayers/machinist/coverage)
