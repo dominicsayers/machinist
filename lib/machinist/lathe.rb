@@ -23,9 +23,7 @@ module Machinist
     attr_reader :object
 
     def method_missing(attribute, *args, &block) #:nodoc:
-      unless attribute_assigned?(attribute)
-        assign_attribute(attribute, make_attribute(attribute, args, &block))
-      end
+      assign_attribute(attribute, make_attribute(attribute, args, &block)) unless attribute_assigned?(attribute)
     end
 
     # Undef a couple of methods that are common ActiveRecord attributes.

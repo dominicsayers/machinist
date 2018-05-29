@@ -66,7 +66,7 @@ module Machinist
       else
         @serial_number ||= 0
         @serial_number += 1
-        sprintf('%04d', @serial_number)
+        format('%04d', @serial_number)
       end
     end
 

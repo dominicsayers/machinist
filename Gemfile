@@ -6,13 +6,14 @@ gem 'sqlite3'
 
 group :development do
   gem 'appraisal', require: false
-  gem 'gem-release', require: false
+  gem 'gem-release', '> 1', require: false
   gem 'github_changelog_generator', require: false
   gem 'guard', require: false
   gem 'guard-rspec', require: false
   gem 'guard-rubocop', require: false
   gem 'guard-rubycritic', require: false
   gem 'rdoc', require: false
+  gem 'rubocop', '= 0.54', require: false
   gem 'rubocop-rspec', require: false
 end
 
