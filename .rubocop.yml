@@ -6,44 +6,41 @@ AllCops:
   TargetRubyVersion: 2.2
   DisplayCopNames: true
   Exclude:
-    - 'tmp/**/*'
+    - gemfiles/**/*
+    - tmp/**/*
 
-Style/MixinGrouping:
-  Exclude:
-    - 'spec/**/*.rb'
+Layout/DotPosition:
+  EnforcedStyle: leading
+  Enabled: true
+
+Layout/ExtraSpacing:
+  Enabled: true
+
+Lint/LiteralInInterpolation:
+  AutoCorrect: true
 
 Metrics/BlockLength:
   CountComments: false  # count full line comments?
   Exclude:
     - '**/*_spec.rb'
 
-StringLiterals:
-  EnforcedStyle: single_quotes
-  Enabled: true
-
-DotPosition:
-  EnforcedStyle: leading
-  Enabled: true
-
-ClassAndModuleChildren:
-  EnforcedStyle: nested
-  Enabled: true
-
-Documentation:
-  Enabled: false
-
-FileName:
-  Enabled: true
-
-LineLength:
+Metrics/LineLength:
   Max: 120
   Enabled: true
 
-Style/ExtraSpacing:
+Naming/FileName:
   Enabled: true
 
-Lint/LiteralInInterpolation:
-  AutoCorrect: true
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/MixinGrouping:
+  Exclude:
+    - spec/**/*.rb
 
 Style/ModuleFunction:
   EnforcedStyle: extend_self # Allows us to have private methods too
@@ -58,3 +55,7 @@ Style/PercentLiteralDelimiters:
     '%r': '{}'
     '%w': '[]'
     '%W': '[]'
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  Enabled: true
