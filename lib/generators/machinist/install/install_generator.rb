@@ -1,7 +1,7 @@
 module Machinist
   module Generators #:nodoc:
     class InstallGenerator < Rails::Generators::Base #:nodoc:
-      source_root File.expand_path('../templates', __FILE__)
+      source_root File.expand_path('templates', __dir__)
 
       class_option :test_framework, type: :string, aliases: '-t', desc: 'Test framework to use Machinist with'
       class_option :cucumber, type: :boolean, desc: 'Set up access to Machinist from Cucumber'
@@ -23,9 +23,7 @@ module Machinist
       end
 
       def cucumber_support
-        if cucumber?
-          template 'machinist.rb.erb', 'features/support/machinist.rb'
-        end
+        template 'machinist.rb.erb', 'features/support/machinist.rb' if cucumber?
       end
 
       private
