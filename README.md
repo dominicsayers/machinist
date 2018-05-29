@@ -22,7 +22,7 @@ If you want support for Rails 3 or Rubies prior to 2.2, [go here](https://github
 
 This is a fork of [Pete Yandell's Machinist](http://github.com/notahat/machinist). The original gem was abandoned for the reasons given below, as are most of its forks. The purpose of this fork is to keep Machinist under maintenance for legacy projects that have upgraded to Ruby 2.2 or later and Rails 4.2 or later, but still have Machinist factories in the test environment.
 
-I'm pleased to say that Pete's code runs fine under Ruby 2.2, 2.3 & 2.4 and Rails 4.2, 5.0 and 5.1. I have allowed [RuboCop](https://github.com/bbatsov/rubocop) and [RuboCop RSpec](https://github.com/backus/rubocop-rspec) to suggest some changes, and I have converted to the more up-to-date RSpec syntax using [Transpec](https://github.com/yujinakayama/transpec). Few if any manual changes were needed.
+I'm pleased to say that Pete's code runs fine under Ruby 2.2, 2.3, 2.4 & 2.5 and Rails 4.2, 5.0, 5.1 and 5.2. I have allowed [RuboCop](https://github.com/bbatsov/rubocop) and [RuboCop RSpec](https://github.com/backus/rubocop-rspec) to suggest some changes, and I have converted to the more up-to-date RSpec syntax using [Transpec](https://github.com/yujinakayama/transpec). Few if any manual changes were needed.
 
 Pete Yandell's reason for abandoning Machinist is that he found himself with less and less need for factories in tests. He recommends Bo Jeanes' [excellent article on the topic](http://bjeanes.com/2012/02/factories-breed-complexity).
 
