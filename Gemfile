@@ -13,7 +13,7 @@ group :development do
   gem 'guard-rubocop', require: false
   gem 'guard-rubycritic', require: false
   gem 'rdoc', require: false
-  gem 'rubocop', '= 0.54', require: false
+  gem 'rubocop', '= 0.56.0', require: false
   gem 'rubocop-rspec', require: false
 end
 
