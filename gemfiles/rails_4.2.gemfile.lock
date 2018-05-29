@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    machinist_redux (3.0.3)
+    machinist_redux (3.0.4)
 
 GEM
   remote: http://rubygems.org/
@@ -68,7 +68,7 @@ GEM
     fuubar (2.2.0)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
-    gem-release (1.0.0)
+    gem-release (2.0.0.rc.3)
     github_changelog_generator (1.14.3)
       activesupport
       faraday-http-cache
@@ -210,7 +210,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   coveralls
   fuubar
-  gem-release
+  gem-release (> 1)
   github_changelog_generator
   guard
   guard-rspec
@@ -225,7 +225,7 @@ DEPENDENCIES
   sqlite3
 
 RUBY VERSION
-   ruby 2.3.4p301
+   ruby 2.4.1p111
 
 BUNDLED WITH
-   1.14.6
+   1.16.2
