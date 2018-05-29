@@ -5,7 +5,7 @@ source "http://rubygems.org"
 ruby "2.4.1"
 
 gem "sqlite3"
-gem "activerecord", "~> 5.1.1", group: :test, require: false
+gem "activerecord", "~> 5.1.6", group: :test, require: false
 
 group :development do
   gem "appraisal", require: false
