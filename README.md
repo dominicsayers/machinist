@@ -7,7 +7,7 @@
 [![Build Status](https://travis-ci.org/dominicsayers/machinist.svg?branch=master)](https://travis-ci.org/dominicsayers/machinist)
 [![Code Climate](https://codeclimate.com/github/dominicsayers/machinist/badges/gpa.svg)](https://codeclimate.com/github/dominicsayers/machinist)
 [![Test Coverage](https://codeclimate.com/github/dominicsayers/machinist/badges/coverage.svg)](https://codeclimate.com/github/dominicsayers/machinist/coverage)
-[![Dependency Status](https://gemnasium.com/badges/github.com/dominicsayers/machinist.svg)](https://gemnasium.com/github.com/dominicsayers/machinist)
+[![Dependency Status](https://gemnasium.com/badges/github.com/dominicsayers/pipeline.svg)](https://gitlab.com/dominicsayers/machinist)
 [![Security](https://hakiri.io/github/dominicsayers/machinist/master.svg)](https://hakiri.io/github/dominicsayers/machinist/master)
 
 - [Home page](https://github.com/dominicsayers/machinist)
